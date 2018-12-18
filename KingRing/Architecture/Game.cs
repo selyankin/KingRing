@@ -11,15 +11,9 @@ namespace KingRing
         public static Keys KeyPressed;
         public static int Score;
 
-        private const string mapForTestGame = @"
-P   
-TT M
-TTTT
-TTTT";
-
-        public static void CreateMap()
+        public static void CreateMap(string map)
         {
-            Map = MapCreator.CreateMap(mapForTestGame);
+            Map = MapCreator.CreateMap(map);
         }
     }
 }

@@ -1,11 +1,8 @@
-﻿using KingRing.Interfaces;
-
-namespace KingRing
+﻿namespace KingRing
 {
     public class CreatureCommand
     {
         public int DeltaX;
         public int DeltaY;
-        public ICell TransformTo;
     }
 }

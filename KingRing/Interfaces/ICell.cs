@@ -1,13 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace KingRing.Interfaces
+﻿namespace KingRing.Interfaces
 {
     public interface ICell
     {
+        string GetImageFileName();
+        int GetDrawingPriority();
         CreatureCommand Act(int x, int y);
         bool DeadInConflict(ICell conflictedObject);
     }

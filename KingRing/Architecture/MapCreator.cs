@@ -11,6 +11,7 @@ namespace KingRing
         private static readonly Dictionary<string, Func<ICell>> Factory = new Dictionary<string, Func<ICell>>
         {
             ["Player"] = () => new Player(),
+            ["Gold"] = () => new Gold(),
             ["Barrier"] = () => new Barrier(),
             ["Monster"] = () => new Monster(),
             ["Wall"] = () => new Wall(),
@@ -38,6 +39,8 @@ namespace KingRing
             {
                 case 'P':
                     return Factory["Player"]();
+                case 'G':
+                    return Factory["Gold"]();
                 case 'B':
                     return Factory["Barrier"]();
                 case 'M':

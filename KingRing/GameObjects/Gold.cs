@@ -1,8 +1,9 @@
-﻿using KingRing.Interfaces;
+﻿using System;
+using KingRing.Interfaces;
 
 namespace KingRing.GameObjects
 {
-    public class Tree : ICell
+    class Gold : ICell
     {
         public CreatureCommand Act(int x, int y)
         {
@@ -11,17 +12,19 @@ namespace KingRing.GameObjects
 
         public bool DeadInConflict(ICell conflictedObject)
         {
-            return false;
+            if (conflictedObject is Player)
+                Game.Score += new Random().Next(1, 30);
+            return true;
         }
 
         public int GetDrawingPriority()
         {
-            return 2;
+            return 4;
         }
 
         public string GetImageFileName()
         {
-            return "tree.png";
+            return "gold.png";
         }
     }
 }

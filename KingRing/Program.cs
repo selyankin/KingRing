@@ -1,8 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.IO;
+using System.Windows.Forms;
+using KingRing.Architecture;
 
 namespace KingRing
 {
@@ -10,6 +8,9 @@ namespace KingRing
     {
         static void Main()
         {
+            var map = File.ReadAllText("D:\\Michael\\Desktop\\Programming\\KingRing\\KingRing\\Maps\\BigMap.txt");
+            Game.CreateMap(map);
+            Application.Run(new KingRingWindow());
         }
     }
 }

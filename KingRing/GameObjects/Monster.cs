@@ -27,7 +27,7 @@ namespace KingRing.GameObjects
 
         public bool FindObstacle(int x, int y)
         {
-            return Game.Map[x, y] is Player || Game.Map[x, y] == null;
+            return Game.Map[x, y] is Player || Game.Map[x, y] == null || Game.Map[x, y] is Gold;
         }
 
         public CreatureCommand Act(int x, int y)
@@ -36,6 +36,10 @@ namespace KingRing.GameObjects
             var diggerPosition = FindDigger();
 
             if (diggerPosition == null)
+                return command;
+
+            var distance = Math.Sqrt(Math.Pow(diggerPosition.X - x, 2) + Math.Pow(diggerPosition.Y - y, 2));
+            if (distance > 4)
                 return command;
 
             if (y > 0 && FindObstacle(x, y - 1) && diggerPosition.Y < y)
@@ -53,6 +57,16 @@ namespace KingRing.GameObjects
         public bool DeadInConflict(ICell conflictedObject)
         {
             return conflictedObject is Player || conflictedObject is Water || conflictedObject is Barrier;
+        }
+
+        public string GetImageFileName()
+        {
+            return "monster.png";
+        }
+
+        public int GetDrawingPriority()
+        {
+            return 3;
         }
     }
 }

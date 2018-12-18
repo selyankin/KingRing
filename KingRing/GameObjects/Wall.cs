@@ -13,5 +13,15 @@ namespace KingRing.GameObjects
         {
             return false;
         }
+
+        public int GetDrawingPriority()
+        {
+            return 4;
+        }
+
+        public string GetImageFileName()
+        {
+            return "wall.png";
+        }
     }
 }
